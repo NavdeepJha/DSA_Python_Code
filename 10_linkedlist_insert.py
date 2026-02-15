@@ -67,21 +67,75 @@ class LinkedList:
             self.head = new_node
             self.length +=1
         return True
-        
+    
+    def popfirst(self):
+        if self.length==0 :
+            return None
+        else:
+            temp = self.head
+            self.head = self.head.next
+            self.length -=1
 
+            if self.length==0 :
+                self.tail = None
+            return temp.value
         
+    def get(self, index) :
+
+        if index < 0 or index>=self.length :
+            return None
         
+        else:
+            temp = self.head
+
+            ptr = 0
+
+            while ptr!=index:
+                temp = temp.next 
+                ptr +=1
+            return temp.value
+        
+    def set_value(self,index,value):
+
+        temp = self.head
+
+        for i in range(index):
+            temp = temp.next
+        
+        temp.value = value
+        return True
+    
+    def insert(self,index,value):
+        new_node = Node(value)
+
+        if self.length==0 :
+            self.head = new_node
+            self.tail = new_node
+            self.length +=1
+        
+        else:
+            temp = self.head
+            pre = self.head
+
+            for i in range(index):
+                pre = temp
+                temp = temp.next
+            new_node.next = pre.next
+            pre.next = new_node
+            self.length +=1
+
+
+    
 my_linked_list = LinkedList(11)
-#my_linked_list.append(3)
-#my_linked_list.append(23)
-#my_linked_list.append(7)
+my_linked_list.append(3)
+my_linked_list.append(23)
+my_linked_list.append(7)
 
 my_linked_list.print_list()
 
-my_linked_list.pop()
-
-my_linked_list.prepend(8)
-print("list after...prepending")
-
+print("---after insert---")
+my_linked_list.insert(0,4)
 my_linked_list.print_list()
+
+
 
