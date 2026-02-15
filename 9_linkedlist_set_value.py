@@ -93,23 +93,28 @@ class LinkedList:
             while ptr!=index:
                 temp = temp.next 
                 ptr +=1
-            return temp.value
+            return temp
         
+    # def set_value(self,index,value):
+
+    #     temp = self.head
+
+    #     for i in range(index):
+    #         temp = temp.next
+        
+    #     temp.value = value
+    #     return True
+
     def set_value(self,index,value):
-
-        temp = self.head
-
-        for i in range(index):
-            temp = temp.next
-        
+        temp = self.get(index)
         temp.value = value
+        
         return True
 
 
         
 
-        
-        
+               
 my_linked_list = LinkedList(11)
 my_linked_list.append(3)
 my_linked_list.append(23)

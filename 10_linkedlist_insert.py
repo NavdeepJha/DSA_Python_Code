@@ -93,36 +93,38 @@ class LinkedList:
             while ptr!=index:
                 temp = temp.next 
                 ptr +=1
-            return temp.value
+            return temp
         
     def set_value(self,index,value):
-
-        temp = self.head
-
-        for i in range(index):
-            temp = temp.next
-        
+        temp = self.get(index)
         temp.value = value
+        
         return True
     
     def insert(self,index,value):
         new_node = Node(value)
 
-        if self.length==0 :
-            self.head = new_node
-            self.tail = new_node
-            self.length +=1
-        
+        if index==0 :
+            self.prepend(value)
+
+        elif index==self.length-1 :
+            self.append(value)
+
         else:
             temp = self.head
             pre = self.head
 
-            for i in range(index):
+            ptr = 0
+
+            while ptr!=index :
                 pre = temp
                 temp = temp.next
+                ptr +=1
+
             new_node.next = pre.next
             pre.next = new_node
             self.length +=1
+        return True
 
 
     
@@ -133,8 +135,11 @@ my_linked_list.append(7)
 
 my_linked_list.print_list()
 
-print("---after insert---")
 my_linked_list.insert(0,4)
+my_linked_list.insert(4,5)
+
+print("---after insert---")
+
 my_linked_list.print_list()
 
 
