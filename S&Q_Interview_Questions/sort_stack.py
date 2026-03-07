@@ -48,12 +48,6 @@ def sort_stack(input_stack):
         input_stack.push(sorted_stack.pop())
         
     
-    
-                
-    
-
-
-
 
 my_stack = Stack()
 my_stack.push(3)
