@@ -1,5 +1,5 @@
 def two_sum(nums, target):
-    # create an empty hash table
+    # create an empty hash table - {num, index}
     num_map = {}
  
     # iterate through each number in the array
